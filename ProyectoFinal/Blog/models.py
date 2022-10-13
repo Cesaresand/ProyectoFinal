@@ -5,7 +5,9 @@ from django.db import models
 
 class Autor(models.Model):
     class Meta:
-        verbose_name_plural = "Autores" #ESTO sirve para corregir el nombre de Autor TIP!
+        verbose_name_plural = (
+            "Autores"  # ESTO sirve para corregir el nombre de Autor TIP!
+        )
 
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
@@ -21,9 +23,15 @@ class Articulo(models.Model):
     texto = models.CharField(max_length=1500)
     fecha = models.DateField(null=True)
 
+    def __str__(self):
+        return self.titulo
+
 
 class Seccion(models.Model):
     class Meta:
-        verbose_name_plural = "Secciones" ## TIP ver arriba
+        verbose_name_plural = "Secciones"  ## TIP ver arriba
 
     nombre = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nombre

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Blog.models import Articulo,Autor,Seccion
+from Blog.models import Articulo, Autor, Seccion
 
 # Register your models here.
 
