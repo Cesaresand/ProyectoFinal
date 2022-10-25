@@ -95,7 +95,9 @@ def procesar_formulario_seccion(request):
         if mi_formulario.is_valid():
             datos_ingresados_por_usuario = mi_formulario.cleaned_data
             nuevo_modelo = Seccion(
-                nombre=datos_ingresados_por_usuario["nombre"],
+                seccion=datos_ingresados_por_usuario["seccion"],
+                texto=datos_ingresados_por_usuario["texto"],
+                autor=datos_ingresados_por_usuario["autor"],
             )
             nuevo_modelo.save()
 

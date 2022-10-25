@@ -12,8 +12,10 @@ from Blog.views import (
 
 urlpatterns = [
     path("inicio/", mostrar_inicio, name="inicio"),
-    path("formulario-autor/", procesar_formulario_autor),
-    path("formulario-articulo/", procesar_formulario_articulo),
-    path("formulario-seccion/", procesar_formulario_seccion),
+    path("formulario-autor/", procesar_formulario_autor, name="registrar-autor"),
+    path(
+        "formulario-articulo/", procesar_formulario_articulo, name="registrar-articulo"
+    ),
+    path("formulario-seccion/", procesar_formulario_seccion, name="registrar-seccion"),
     path("buscar-articulo/", buscar, name="buscar-articulo"),
 ]

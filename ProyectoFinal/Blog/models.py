@@ -31,7 +31,9 @@ class Seccion(models.Model):
     class Meta:
         verbose_name_plural = "Secciones"  ## TIP ver arriba
 
-    nombre = models.CharField(max_length=30)
+    seccion = models.CharField(max_length=30)
+    texto = models.CharField(max_length=1500)
+    autor = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.nombre
+        return self.seccion

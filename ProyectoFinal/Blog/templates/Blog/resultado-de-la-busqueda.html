@@ -1,6 +1,23 @@
-<ul>
-{% for resultado in resultados %}
+{% extends "Blog/madre.html" %}
 
-<li>{{resultado.titulo}}: {{resultado.texto}}</li>
-{% endfor %}
-<ul>
+{% load static %}
+
+
+{% block inserte_aqui_el_contenido %}
+
+{%if resultado %}
+
+        {% for resultado in resultados %}
+
+                <li>{{resultado.titulo}}: {{resultado.texto}}</li>
+
+        {% endfor %}
+
+{% else %}
+
+<h1 >No se encuentró la busqueda... 🤷‍♀️🤷‍♂️</h1>
+
+{% endif %}
+
+
+{% endblock %}
