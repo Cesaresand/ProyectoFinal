@@ -6,10 +6,10 @@ from Blog.models import Articulo, Autor, Seccion
 from Blog.forms import ArticuloForm, AutorForm, SeccionForm
 
 
-def buscar(request):
+def buscar_articulo(request):
 
     if request.method == "GET":
-        return render(request, "Blog/formulario-de-busqueda.html")
+        return render(request, "Blog/formulario-de-busqueda-articulo.html")
 
     if request.method == "POST":
 
@@ -18,7 +18,43 @@ def buscar(request):
             titulo=titulo_para_buscar
         )  ## esto es para buscar en la base de datos
         contexto = {"resultados": resultados_de_busqueda}
-        return render(request, "Blog/resultado-de-la-busqueda.html", context=contexto)
+        return render(
+            request, "Blog/resultado-de-la-busqueda-articulo.html", context=contexto
+        )
+
+
+def buscar_seccion(request):
+
+    if request.method == "GET":
+        return render(request, "Blog/formulario-de-busqueda-seccion.html")
+
+    if request.method == "POST":
+
+        seccion_para_buscar = request.POST["seccion"]
+        resultados_de_busqueda = Seccion.objects.filter(
+            seccion=seccion_para_buscar
+        )  ## esto es para buscar en la base de datos
+        contexto = {"resultados": resultados_de_busqueda}
+        return render(
+            request, "Blog/resultado-de-busqueda-seccion.html", context=contexto
+        )
+
+
+def buscar_autor(request):
+
+    if request.method == "GET":
+        return render(request, "Blog/formulario-de-busqueda-autor.html")
+
+    if request.method == "POST":
+
+        nombre_para_buscar = request.POST["autor"]
+        resultados_de_busqueda = Autor.objects.filter(
+            nombre=nombre_para_buscar
+        )  ## esto es para buscar en la base de datos
+        contexto = {"resultados": resultados_de_busqueda}
+        return render(
+            request, "Blog/resultado-de-busqueda-autor.html", context=contexto
+        )
 
 
 ####################################################################################

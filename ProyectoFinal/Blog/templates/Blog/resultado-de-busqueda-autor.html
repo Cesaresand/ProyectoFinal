@@ -5,11 +5,12 @@
 
 {% block inserte_aqui_el_contenido %}
 
-{%if resultado %}
+{%if resultados %} 
 
         {% for resultado in resultados %}
 
-                <li>{{resultado.titulo}}: {{resultado.texto}}</li>
+                <li>{{resultado.nombre}}: {{resultado.apellido}}</li>
+                <li>{{resultado.profesion}}</li>
 
         {% endfor %}
 

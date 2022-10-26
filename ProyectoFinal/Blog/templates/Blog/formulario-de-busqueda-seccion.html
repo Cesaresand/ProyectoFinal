@@ -1,0 +1,14 @@
+{% extends "Blog/madre.html" %}
+
+{% load static %}
+
+{% block inserte_aqui_el_contenido %}
+
+<p style="color: blue;"> #Ingresar Sección a Buscar:</p>
+
+<form action="/blog/buscar-seccion/" method="POST">{% csrf_token %}
+    <p><input type="text" name="seccion" id="seccion"></p>
+    <input type="submit" value="Buscar Seccion">
+</form>
+
+{% endblock %}
