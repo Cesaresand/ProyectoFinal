@@ -1,0 +1,11 @@
+{% extends "blog/madre.html" %}
+{% block inserte_aqui_su_contenido %} 
+
+Titulo: {{ pagina.titulo }} <br>
+Articulo: {{ pagina.texto }} <br>
+Fecha: {{ pagina.fecha }} <br> 
+Autor: {{ pagina.autor }} <br>
+
+<a href="{% url 'PaginasList' %}">Todos los autores</a>
+
+{% endblock %} 

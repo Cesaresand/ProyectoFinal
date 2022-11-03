@@ -1,0 +1,11 @@
+{% extends "Blog/madre.html" %}
+{% block inserte_aqui_su_contenido: %} 
+
+Nombre del autor: {{ autor.nombre }} <br>
+Apellido del autor: {{ autor.apellido }} <br>
+Profesión: {{ autor.profesion }}
+Email: {{ autor.email }} 
+
+<a href="{% url 'AutorList' %}">Todos los autores</a>
+
+{% endblock %} 

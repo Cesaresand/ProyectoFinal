@@ -4,12 +4,10 @@
 
 {% block inserte_aqui_el_contenido %}
 
-<p style="color: blue;"> #Ingresar el nombre, apellido y profesión del autor:</p>
+<p style="color: blue;"> #Ingresar el nombre del autor:</p>
 
-<form action="/blog/buscar-autor/" method="POST">{% csrf_token %}
+<form action="/Blog/buscar-autor/" method="POST">{% csrf_token %}
     Nombre:<p><input type="text" name="nombre" id="nombre"></p>
-    Apellido:<p><input type="text" apellido="apellido" id="apellido"></p>
-    Profesión:<p><input type="text" profesion="profesion" id="profesion"></p>
     <input type="submit" value="Buscar el Autor">
 </form>
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -12,9 +13,10 @@ class Autor(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     profesion = models.CharField(max_length=30)
+    email = models.EmailField()
 
     def __str__(self):
-        return f"{self.nombre} {self.apellido}"
+        return f"{self.nombre} {self.apellido} - Profesión: {self.profesion} - Email: {self.email}"
 
 
 class Articulo(models.Model):
@@ -37,3 +39,21 @@ class Seccion(models.Model):
 
     def __str__(self):
         return self.seccion
+
+
+##############################################################################
+
+
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to="avatares", null=True, blank=True)
+
+
+class Pagina(models.Model):
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=30)
+    texto = models.CharField(max_length=1000)
+    fecha = models.DateField(null=True)
+
+    def __str__(self):
+        return self.titulo

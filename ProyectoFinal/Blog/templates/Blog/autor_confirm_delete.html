@@ -1,0 +1,8 @@
+<form method="post">{% csrf_token %} 
+    <table>
+        Estás seguro de que deseas borrar el autor? "{{ object }}"?
+        
+    </table>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

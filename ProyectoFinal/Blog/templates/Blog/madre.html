@@ -11,21 +11,46 @@
 <h2> Proyecto final Python: <h2>
 
 <h3> * TRAVEL BLOG BROS- Cuentanos a donde tenemos que ir!?... pero en muy pocas palabras ; ) <h3>
-----------------------------------------------------------------------------------------------
+<p> ---------------------------------------------------------------------------------------------- </p>
+
+{% if not request.user.is_authenticated %}
+    <a class="navbar-brand" href="{% url 'Login' %}">Login</a>
+    <a class="navbar-brand" href="{% url 'Register' %}">Registrarse</a>
+
+{% endif %}
 
 <!-- Navigation-->
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
         <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
+        <a class="navbar-brand" href="{% url 'acerca_de_mi' %}">About</a><br>
         <a class="navbar-brand" href="{% url 'buscar-articulo' %}">Buscar Artículo</a>
+        <a class="navbar-brand" href="{% url 'registrar-articulo' %}">Registrar Articulo</a><br>
         <a class="navbar-brand" href="{% url 'buscar-seccion' %}">Buscar Seccion</a>
+        <a class="navbar-brand" href="{% url 'registrar-seccion' %}">Registar Sección</a><br>
         <a class="navbar-brand" href="{% url 'buscar-autor' %}">Buscar Autor</a>
-        <a class="navbar-brand" href="{% url 'registrar-articulo' %}">Registrar Articulo</a>
-        <a class="navbar-brand" href="{% url 'registrar-seccion' %}">Registar Sección</a>
         <a class="navbar-brand" href="{% url 'registrar-autor' %}">Registrar Autor</a>
+        <a class="navbar-brand" href="{% url 'AutorList' %}">Mis autores</a>
+        <a class="navbar-brand" href="{% url 'AutorNew' %}">Crear nuevo autor</a><br>
+        <a class="navbar-brand" href="{% url 'PaginaNew' %}">Crear nueva pagina</a>
+        <a class="navbar-brand" href="{% url 'PaginasList' %}">Paginas List</a>
+
+
+{% if request.user.is_authenticated %}
+    <a class="navbar-brand" href="{% url 'Logout' %}">Logout</a>
+    <a class="navbar-brand" href="{% url 'EditarPerfil' %}">Editar Perfil</a>
+    <a class="navbar-brand" href="{% url 'AgregarAvatar' %}">Agregar Avatar</a>
+    {% if avatar %}
+        <img height="40px" src="{{ avatar }}"/>
+    {% endif %}
+    <p>Hola, {{ user.username }} !!</p>
+    
+{% endif %}
+
     </div>
 </nav>
-----------------------------------------------------------------------------------------------<h3>
+--------------------------------------------------------------------------------------------------
+<h3>
 {% block inserte_aqui_el_contenido %}
 
 {% endblock %}

@@ -1,0 +1,9 @@
+<form method="post">{% csrf_token %} 
+    <table>
+        Estas seguro de que queres la página "{{ object }}"?
+        
+    </table>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
